@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   <style>
   body {
       font: 400 15px Lato, sans-serif;
@@ -456,32 +458,44 @@
   </div>
 </div>
 
-<div id="googleMap" style="height:400px;width:100%;"></div>
+<div id="mapid" style="height:400px;width:100%;"></div>
 
-<!-- Add Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+<!-- Map -->
+
 <script>
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
-function initialize() {
-var mapProp = {
-  center:myCenter,
-  zoom:12,
-  scrollwheel:false,
-  draggable:false,
-  mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
+	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 18,
+		attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+	}).addTo(mymap);
 
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	L.marker([51.5, -0.09]).addTo(mymap)
+		.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
-var marker = new google.maps.Marker({
-  position:myCenter,
-  });
+	L.circle([51.508, -0.11], 500, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+	}).addTo(mymap).bindPopup("I am a circle.");
 
-marker.setMap(map);
-}
+	L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	]).addTo(mymap).bindPopup("I am a polygon.");
 
-google.maps.event.addDomListener(window, 'load', initialize);
+
+	var popup = L.popup();
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent("You clicked the map at " + e.latlng.toString())
+			.openOn(mymap);
+	}
+
+	mymap.on('click', onMapClick);
 </script>
 
 <footer class="container-fluid text-center">
