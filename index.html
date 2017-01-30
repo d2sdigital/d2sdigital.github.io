@@ -212,7 +212,6 @@
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#services">SERVICES</a></li>
         <li><a href="#portfolio">PORTFOLIO</a></li>
-        <li><a href="#pricing">PRICING</a></li>
         <li><a href="#contact">CONTACT</a></li>
       </ul>
     </div>
@@ -222,11 +221,6 @@
 <div class="jumbotron text-center">
   <h1>d2s - Digital</h1> 
   <p>We specialize in digital!</p> 
-  <form>
-    <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
-    </div>
-  </form>
 </div>
 
 <!-- Container (About Section) -->
@@ -303,11 +297,11 @@
 <!-- Container (Portfolio Section) -->
 <div id="portfolio" class="container-fluid text-center bg-grey">
   <h2>Portfolio</h2><br>
-  <h4>What we have created</h4>
+  <h4>We are d2s Digital Limited...</h4>
   <div class="row text-center slideanim">
     <div class="col-sm-4">
       <div class="img-circle" class="thumbnail">
-        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQm-6MJbyVoaLXiJwSdzPgCLTZG-DjCIq7tH3_oytqHXTF6-Cs3" alt="Paris" width="400" height="300">
+        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQZ5ezw1Qe2E-zArOwWHOd_a_DLm3h3JABRfEigDTcmkqOVlI3Qqw" alt="Paris" width="400" height="300">
         <p><strong>Dan Brookman</strong></p>
         <p>@MrBrookman</p>
       </div>
@@ -362,73 +356,6 @@
   </div>
 </div>
 
-<!-- Container (Pricing Section) -->
-<div id="pricing" class="container-fluid">
-  <div class="text-center">
-    <h2>Pricing</h2>
-    <h4>Choose a payment plan that works for you</h4>
-  </div>
-  <div class="row slideanim">
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Basic</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>20</strong> Lorem</p>
-          <p><strong>15</strong> Ipsum</p>
-          <p><strong>5</strong> Dolor</p>
-          <p><strong>2</strong> Sit</p>
-          <p><strong>Endless</strong> Amet</p>
-        </div>
-        <div class="panel-footer">
-          <h3>$19</h3>
-          <h4>per month</h4>
-          <button class="btn btn-lg">Sign Up</button>
-        </div>
-      </div>      
-    </div>     
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Pro</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>50</strong> Lorem</p>
-          <p><strong>25</strong> Ipsum</p>
-          <p><strong>10</strong> Dolor</p>
-          <p><strong>5</strong> Sit</p>
-          <p><strong>Endless</strong> Amet</p>
-        </div>
-        <div class="panel-footer">
-          <h3>$29</h3>
-          <h4>per month</h4>
-          <button class="btn btn-lg">Sign Up</button>
-        </div>
-      </div>      
-    </div>       
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Premium</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>100</strong> Lorem</p>
-          <p><strong>50</strong> Ipsum</p>
-          <p><strong>25</strong> Dolor</p>
-          <p><strong>10</strong> Sit</p>
-          <p><strong>Endless</strong> Amet</p>
-        </div>
-        <div class="panel-footer">
-          <h3>$49</h3>
-          <h4>per month</h4>
-          <button class="btn btn-lg">Sign Up</button>
-        </div>
-      </div>      
-    </div>    
-  </div>
-</div>
-
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">CONTACT</h2>
@@ -463,14 +390,14 @@
 <!-- Map -->
 
 <script>
-var mymap = L.map('mapid').setView([51.5179937, -0.7987235], 13);
+var mymap = L.map('mapid').setView([51.520557,-0.7236647], 13);
 
 	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 18,
 		attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 	}).addTo(mymap);
 
-	L.marker([51.5179937,-0.7987235]).addTo(mymap)
+	L.marker([51.520557,-0.7236647]).addTo(mymap)
 		.bindPopup("We are d2s Digital").openPopup();
 
 	var popup = L.popup();
