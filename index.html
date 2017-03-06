@@ -19,6 +19,12 @@
       line-height: 1.8;
       color: #818181;
   }
+  .fa {
+  color: #ff6600;
+  }
+  a {
+    color: #818181;
+}
   h2 {
       font-size: 24px;
       text-transform: uppercase;
@@ -331,24 +337,32 @@
   <div class="row">
     <div class="col-sm-5">
       <p>Contact us and we'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Maidenhead</p>
-      <p><span class="glyphicon glyphicon-phone"></span> coming soon</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> hello@d2sdigital.com</p>
+	 <p><i class="fa fa-map-marker"style="font-size:48px;"></i> Maidenhead</p>	  
+	  <p><a href="mailto:hello@d2sdigital.com?Subject=Hello%20d2s" target="_top"><i class="fa fa-envelope"style="font-size:48px;"></i> hello@d2sdigital.com</a></p>
+	  
+	  </a>
+	  
+	  
     </div>
     <div class="col-sm-7">
 	 <p>Follow us on.</p>
-	 <p><span class="fa fa-github"></span> Github</p>
-	 <p><span class="fa fa-twitter"></span> Twitter</p>
+	 <p><a href="https://github.com/d2sdigital"><i class="fa fa-github"style="font-size:48px;"></i> Github</a></p>
+	 <p><a href="https://twitter.com/d2sdigital"><i class="fa fa-twitter" style="font-size:48px;"></i> Twitter</a></p>
+
+	 
     </div>
   </div>
 </div>
 
-<div class="jumbotron" id="mapid" style="height:400px;"></div>
+<div id="mapid" style="height:400px;"></div>
 
 <!-- Map -->
 
 <script>
-var mymap = L.map('mapid').setView([51.520557,-0.7236647], 13);
+
+var mymap = L.map('mapid', {center: [51.520557,-0.7236647], zoom:10,  dragging: !L.Browser.mobile});
+
+
 
 	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 18,
@@ -356,7 +370,7 @@ var mymap = L.map('mapid').setView([51.520557,-0.7236647], 13);
 	}).addTo(mymap);
 
 	L.marker([51.520557,-0.7236647]).addTo(mymap)
-		.bindPopup("We are d2s Digital").openPopup();
+		.bindPopup('<img src="logo_rebrand.png" alt="Mountain View" style="width:152px;height:114px;">').openPopup();
 
 	var popup = L.popup();
 
