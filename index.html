@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>d2s Digital</title>
+  <title>d2s Digital Limited</title>
   <meta charset="utf-8">
   <link rel=icon href="logo_rebrand.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Coda|Merriweather+Sans:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  type="text/css" rel="stylesheet" media="all">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
@@ -196,6 +198,37 @@
         font-size: 150px;
     }
   }
+  
+  
+  
+  
+  .plans {padding: 0 !important;}
+.plans h5 {background: #f6f6f6;padding: 10px 10px;font-size: 16px;text-transform: uppercase;
+    letter-spacing: 1px;font-weight: bold;}
+
+.panel-pricing {-moz-transition: all .3s ease;-o-transition: all .3s ease;-webkit-transition: all .3s ease;}
+.panel-pricing:hover {box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);}
+.panel-pricing .panel-heading {padding:13px 10px;color:#fdfdfd;background-color:#ed1c24;border-color:#ed1c24;}
+.panel-pricing .panel-heading .fa {margin-top: 10px;font-size: 58px;}
+.panel-pricing .list-group-item {color: #777777;border-bottom: 1px solid rgba(250, 250, 250, 0.5);}
+.panel { border:0px solid !important;}
+.panel-pricing .panel-body {font-size:40px;padding:10px;margin:0px;border-bottom: 1px solid #cfcfcf;}
+.panel-footer { border:0px solid !important;background-color:#fff !important;}
+.panel-pricing .panel-heading h3 {margin: 0;padding: 10px;}
+p.p-title { font-size:18px;text-align: center;text-transform: capitalize;}
+p.p-time { font-size:18px;text-align: center;text-transform: capitalize;}
+p.p-price { font-size:18px;text-align: center;text-transform: capitalize;color: #ed1c24;font-weight: bold;}
+p.p-tax { font-size:18px;text-align: center;text-transform: capitalize;}
+.sub-btn {background: #ed1c24;color: #fff;border-radius: 0px;padding: 5px 8px;}
+.sub-btn:hover, .sub-btn:focus { color:#fff; text-decoration:none;}
+  
+  
+  
+  
+  
+  
+  
+  
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -263,22 +296,36 @@
   <h3><small>Our 'insight' range of solutions provides different avenues into viewing, collaborating, maintaining and sharing data and information. </small></h3>
   <br>
   <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-repeat logo-small"></span>
-      <h4>insight: api</h4>
-      <p align="justify">Use <em>insight:api</em> as either your first step into the insight range or as a means just to get your data web accessible. This services enables you to publish secured or open APIs as either a JSON or GeoJSON RESTful Service.</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-search logo-small"></span>
-      <h4>insight: view</h4>
-      <p align="justify">A route into seeing your data and its associated linked data. Underpinned by a range of APIs of your data, <em>insight:view</em> is a searchable web application that provides an insight in a single record. It is tailored around your data and data requirements, can be linked to open-data sources and through <abbr title=" Extract, Transform, Load">ETL</abbr> services extract data from a wide range of databases. </p>
-    </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 panel panel-default">
+	<br>
+		<div class="panel-body">
+		<span class="glyphicon glyphicon-repeat logo-small"></span>
+
+	  
+			<h4>insight: api</h4>
+			<p align="justify">Use <em>insight:api</em> as either your first step into the insight range or as a means just to get your data web accessible. This services enables you to publish secured or open APIs as either a JSON or GeoJSON RESTful Service.</p>
+		</div>   
+	
+	</div>
+    <div class="col-sm-4 panel panel-default">
+	<br>
+		<div class="panel-body">
+		  <span class="glyphicon glyphicon-search logo-small"></span>
+		  <h4>insight: view</h4>
+		  <p align="justify">A route into seeing your data and its associated linked data. Underpinned by a range of APIs of your data, <em>insight:view</em> is a searchable web application that provides an insight in a single record. It is tailored around your data and data requirements, can be linked to open-data sources and through <abbr title=" Extract, Transform, Load">ETL</abbr> services extract data from a wide range of databases. </p>
+		</div>   
+	</div>
+    <div class="col-sm-4 panel panel-default">
+	<br>
+	<div class="panel-body">
       <span class="glyphicon glyphicon-map-marker logo-small"></span>
       <h4>insight: map</h4>
       <p align="justify">View data on any connected device, anywhere on an interactive map. Underpinned by the range of APIs of your data and using Open-Source JavaScript web mapping libraries, <em>insight: map</em> allows you to view your data and/or Open-Data easily and effortlessly.</p>
     </div>
   </div>
+    </div>
+
+  
   <br><br>
   <h2>Services</h2>
   <h3 align="justify"><small>We can provide you with a range of solutions tailored to your requirements but we can also provide you with simple, no frills, impartial consultancy on your data and digital requirements. Over the years we've see a lot of solutions, products and heard a lot of spill, so although it might not always be us that can deliver for you, we probably know who can. We like to think we are different. Let's talk?</small></h3>
@@ -330,30 +377,129 @@
 
 </div>
 
+
+
+
+<div id="services" class="container-fluid text-center">
+
+<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+</div>
+
+<div class="plans col-md-12 col-sm-12 col-xs-12 text-center">
+<h5>insight:api PLANS</h5>
+</div>
+</div><!--container-fluid close-->
+
+
+<section>
+<div class="container">
+<div class="row">
+                <!-- item -->
+<div class="col-md-4 col-sm-4 col-xs-12 text-center">
+<div class="panel panel-pricing">
+<div class="panel-heading">
+<i class="fa fa-windows"></i>
+<h3>Plan -1</h3>
+</div><!--panel-heading close-->
+<div class="panel-body text-center">
+<p class="p-title">maximum of 3 APIs</p><!--p-title close-->
+<p class="p-time">4GB of storage</p>
+<p class="p-time">40GB of bandwidth </p><!--p-time close-->
+</div><!--panel-body text-center close-->
+<div class="panel-body text-center">
+<p class="p-price">£ TBA </p><!--p-price close-->
+</div><!--panel-body text-center close-->
+<div class="panel-footer">
+</div>
+</div><!--panel panel-pricing close-->
+</div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
+
+
+<div class="col-md-4 col-sm-4 col-xs-12 text-center">
+<div class="panel panel-pricing">
+<div class="panel-heading">
+<i class="fa fa-windows"></i>
+<h3>Plan -2</h3>
+</div><!--panel-heading close-->
+<div class="panel-body text-center">
+<p class="p-title">maximum of 5 APIs</p><!--p-title close-->
+<p class="p-time">8GB of storage</p>
+<p class="p-time">100GB of bandwidth </p><!--p-time close--> 
+</div><!--panel-body text-center close-->
+<div class="panel-body text-center">
+<p class="p-price">£ TBA </p><!--p-price close-->
+</div><!--panel-body text-center close-->
+<div class="panel-footer">
+</div>
+</div><!--panel panel-pricing close-->
+</div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
+
+
+
+<div class="col-md-4 col-sm-4 col-xs-12 text-center">
+<div class="panel panel-pricing">
+<div class="panel-heading">
+<i class="fa fa-windows"></i>
+<h3>Plan -3</h3>
+</div><!--panel-heading close-->
+<div class="panel-body text-center">
+<p class="p-title">Unlimited APIs</p><!--p-title close-->
+<p class="p-time">Unlimited storage</p>
+<p class="p-time">Unlimited bandwidth </p><!--p-time close--> 
+</div><!--panel-body text-center close-->
+<div class="panel-body text-center">
+<p class="p-price">POA </p><!--p-price close-->
+</div><!--panel-body text-center close-->
+<div class="panel-footer">
+</div>
+</div><!--panel panel-pricing close-->
+</div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
+
+</div><!--row close-->
+</div><!--container close-->
+</section><!--section close-->
+
+
+</div>
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">Contact</h2>
   <div class="row">
-    <div class="col-sm-5">
-      <p>Contact us and we'll get back to you within 24 hours.</p>
-	 <p><i class="fa fa-map-marker"style="font-size:48px;"></i> Maidenhead</p>	  
-	  <p><a href="mailto:hello@d2sdigital.com?Subject=Hello%20d2s" target="_top"><i class="fa fa-envelope"style="font-size:48px;"></i> hello@d2sdigital.com</a></p>
-	  
-	  </a>
-	  
-	  
-    </div>
-    <div class="col-sm-7">
-	 <p>Follow us on.</p>
-	 <p><a href="https://github.com/d2sdigital"><i class="fa fa-github"style="font-size:48px;"></i> Github</a></p>
-	 <p><a href="https://twitter.com/d2sdigital"><i class="fa fa-twitter" style="font-size:48px;"></i> Twitter</a></p>
+	<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+	
+		<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+		<p><a href="mailto:hello@d2sdigital.com?Subject=Hello%20d2s" target="_top"><i class="fa fa-envelope"style="font-size:48px;"></i> </a></p>		
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+		<p><a href="https://github.com/d2sdigital"><i class="fa fa-github"style="font-size:48px;"></i></a></p>
+		
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+	 <p><a href="https://twitter.com/d2sdigital"><i class="fa fa-twitter" style="font-size:48px;"></i></a></p>	
+		
+		</div>
+		
 
-	 
+
+
+		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+			<hr>
+			<h4>d2s Digital Limited</h4>	
+			<p>hello@d2sdigital.com</p>	
+			<p>Company House: 10580883</p>	
+			<p>VAT: pending</p>
+		</div>		
+
+	  
     </div>
+		
+	
+    <div class="col-md-6 col-sm-6 col-xs-6" id="mapid" style="height:400px;"></div>
+	</div>
   </div>
 </div>
 
-<div id="mapid" style="height:400px;"></div>
+
 
 <!-- Map -->
 
