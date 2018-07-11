@@ -1,0 +1,148 @@
+/* ----- ----- ----- *
+ * d2s Digital Limited 2018 
+ * written by simon.arthur@d2sdigital.com
+/* ----- ----- ----- */
+ 
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+/*
+ * 	font-family: 'Monoton', cursive;
+ *	font-family: 'Ubuntu', Sans Serif;
+ *
+ *	Primary colors: #f60 / #ffbd45 / #c25e00
+ *	Secondary colors: #bdbdbd / #efefef / #8d8d8d
+*/
+
+:root {
+	--primary-fontFamily: 			"Ubuntu", Sans Serif;
+	--primary-color: 				#fb8c00;
+	--primary-color-light: 			#ffbd45;
+	--primary-color-dark: 			#c25e00;
+
+	--secondary-color: 				#bdbdbd;
+	--secondary-color-light: 		#efefef;
+	--secondary-color-dark: 		#8d8d8d;
+	
+	--spacer-xs:					2px;
+	--spacer-sm:					5px;
+	--spacer-md:					calc(var(--spacer-sm)*2);
+	--spacer-lg:					calc(var(--spacer-md)*3);
+	--spacer-xl:					calc(var(--spacer-lg)*3);
+}
+
+
+html, body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 1.7rem;
+	background-color: var(--secondary-color-light);
+}
+/*
+#body {
+	margin-top: 90px;
+}
+/* --- Navigation Branding --- */
+.navbar-default {
+	background: linear-gradient(to bottom right, var(--secondary-color-light), var(--secondary-color) );
+}
+.navbar-brand {
+  height: 90px;
+}
+.nav > li > a {
+  padding-top: var(--spacer-lg);
+  padding-bottom: var(--spacer-lg);
+  font-size: 120%;
+  font-weight: 600;
+}
+.navbar-toggle {
+  padding: var(--spacer-md);
+  margin: var(--spacer-lg); var(--spacer-lg); var(--spacer-lg) 0;
+}
+.navbar-brand {
+	padding: 0px;
+}
+.navbar-brand > img {
+	height: 100%;
+	padding: var(--spacer-sm);
+	width: auto;
+}
+
+/* --- add padding to drop below navbar --- */
+.container:not(:first-child) {
+	padding: var(--spacer-lg);
+	padding-top: 90px;
+	background-color: #fff;
+	margin-bottom: 2em;
+	border-radius: var(--spacer-lg);
+}
+
+h2 {
+	font-size: 2.4rem;
+	font-variant: small-caps;
+	color: var(--primary-color);
+	text-shadow: var(--spacer-xs) var(--spacer-xs) var(--spacer-sm) var(--secondary-color-dark);
+}
+a,
+a:visited {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+a:focus,
+a:hover,
+a:active {
+	color: var(--primary-color-light);
+	text-decoration: none;
+}
+
+.jumbotron {
+    background-image: url('../images/data-background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.script {
+	font-family: 'Monoton', cursive;
+	font-size: 10vw;
+	color: #fff;
+	text-shadow: var(--spacer-xs) var(--spacer-xs) var(--spacer-sm) var(--primary-color-dark);
+	margin: 20vh 0 20vh 0;
+}
+.logo {
+	color: var(--secondary-color);
+	text-shadow: var(--spacer-xs) var(--spacer-xs) var(--spacer-sm) var(--primary-color-dark);
+	font-size: 20vh;
+}
+
+#mapid {
+	height: 30vh;
+	padding: var(--spacer-xl);
+	margin: var(--spacer-sm);
+	border: 3px double var(--primary-color);
+	box-shadow: var(--spacer-sm) var(--spacer-sm) var(--spacer-md) var(--secondary-color-dark);
+}
+
+
+/* --- Back To The Top --- */
+.back-to-top {
+	background: none;
+	margin: 0;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 70px;
+	height: 70px;
+	z-index: 100;
+	display: none;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #ff9000;
+}
+.back-to-top i {
+	font-size: 60px;
+}
+
+
+
+/* --- END OF FILE --- */

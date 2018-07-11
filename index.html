@@ -1,574 +1,289 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
+
 <head>
-  <title>d2s Digital</title>
-  <meta charset="utf-8">
-  <link rel=icon href="logo_rebrand.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Coda|Merriweather+Sans:300,400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  type="text/css" rel="stylesheet" media="all">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-  <style>
-  body {
-      font: 300 15px 'Roboto', sans-serif;
-      line-height: 1.8;
-      color: #818181;
-  }
-  .fa {
-  color: #ff6600;
-  }
-  a {
-    color: #818181;
-}
-  h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      color: #303030;
-      font-weight: 600;
-      margin-bottom: 30px;
-  }
-  h4 {
-      font-size: 19px;
-      line-height: 1.375em;
-      color: #303030;
-      font-weight: 400;
-      margin-bottom: 30px;
-  }  
-  .jumbotron {
-       background-color: #ff6600;
-      color: #fff;
-      padding: 100px 25px;
-      font-family: 'Merriweather Sans', sans-serif;
-  }
-  .container-fluid {
-      padding: 60px 50px;
-  }
-  .bg-grey {
-      background-color: #f6f6f6;
-  }
-  .logo-small {
-      color: #ff6600;
-      font-size: 50px;
-  }
-  .logo {
-      color: #ff6600;
-      font-size: 200px;
-  }
-  .thumbnail {
-      padding: 0 0 15px 0;
-      border: none;
-      border-radius: 0;
-  }
-  .thumbnail img {
-      width: 100%;
-      height: 100%;
-      margin-bottom: 10px;
-  }
-  .carousel-control.right, .carousel-control.left {
-      background-image: none;
-      color: #ff6600;
-  }
-  .carousel-indicators li {
-      border-color: #ff6600;
-  }
-  .carousel-indicators li.active {
-      background-color: #ff6600;
-  }
-  .item h4 {
-      font-size: 19px;
-      line-height: 1.375em;
-      font-weight: 400;
-      font-style: italic;
-      margin: 70px 0;
-  }
-  .item span {
-      font-style: normal;
-  }
-  .panel {
-      border: 1px solid #ff6600; 
-      border-radius:0 !important;
-      transition: box-shadow 0.5s;
-  }
-  .panel:hover {
-      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-  }
-  .panel-footer .btn:hover {
-      border: 1px solid #ff6600;
-      background-color: #fff !important;
-      color: #ff6600;
-  }
-  .panel-heading {
-      color: #fff !important;
-      background-color: #ff6600 !important;
-      padding: 25px;
-      border-bottom: 1px solid transparent;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-  }
-  .panel-footer {
-      background-color: white !important;
-  }
-  .panel-footer h3 {
-      font-size: 32px;
-  }
-  .panel-footer h4 {
-      color: #aaa;
-      font-size: 14px;
-  }
-  .panel-footer .btn {
-      margin: 15px 0;
-      background-color: #ff6600;
-      color: #fff;
-  }
-  .navbar {
-      margin-bottom: 0;
-      background-color: #ff6600;
-      z-index: 9999;
-      border: 0;
-      font-size: 12px !important;
-      line-height: 1.42857143 !important;
-      letter-spacing: 4px;
-      border-radius: 0;
-      font-family: Montserrat, sans-serif;
-  }
-  .navbar li a, .navbar .navbar-brand {
-      color: #fff !important;
-  }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
-      color: #ff6600 !important;
-      background-color: #fff !important;
-  }
-  .navbar-default .navbar-toggle {
-      border-color: transparent;
-      color: #fff !important;
-  }
-  footer .glyphicon {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #ff6600;
-  }
-  .slideanim {visibility:hidden;}
-  .slide {
-      animation-name: slide;
-      -webkit-animation-name: slide;
-      animation-duration: 1s;
-      -webkit-animation-duration: 1s;
-      visibility: visible;
-  }
-  @keyframes slide {
-    0% {
-      opacity: 0;
-      transform: translateY(70%);
-    } 
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-  }
-  @-webkit-keyframes slide {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateY(70%);
-    } 
-    100% {
-      opacity: 1;
-      -webkit-transform: translateY(0%);
-    }
-  }
-  @media screen and (max-width: 768px) {
-    .col-sm-4 {
-      text-align: center;
-      margin: 25px 0;
-    }
-    .btn-lg {
-        width: 100%;
-        margin-bottom: 35px;
-    }
-  }
-  @media screen and (max-width: 480px) {
-    .logo {
-        font-size: 150px;
-    }
-	#d2s_logo {
-		width: 160px; 
-		height: 75px;
-	
-	}
-	
-  }
-  
-  
-  
-  
-  .plans {padding: 0 !important;}
-.plans h5 {background: #f6f6f6;padding: 10px 10px;font-size: 16px;text-transform: uppercase;
-    letter-spacing: 1px;font-weight: bold;}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="./images/d2s-digital-ltd_logo.png">
 
-.panel-pricing {-moz-transition: all .3s ease;-o-transition: all .3s ease;-webkit-transition: all .3s ease;}
-.panel-pricing:hover {box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);}
-.panel-pricing .panel-heading {padding:13px 10px;color:#fdfdfd;background-color:#ed1c24;border-color:#ed1c24;}
-.panel-pricing .panel-heading .fa {margin-top: 10px;font-size: 58px;}
-.panel-pricing .list-group-item {color: #777777;border-bottom: 1px solid rgba(250, 250, 250, 0.5);}
-.panel { border:0px solid !important;}
-.panel-pricing .panel-body {font-size:40px;padding:10px;margin:0px;border-bottom: 1px solid #cfcfcf;}
-.panel-footer { border:0px solid !important;background-color:#fff !important;}
-.panel-pricing .panel-heading h3 {margin: 0;padding: 10px;}
-p.p-title { font-size:18px;text-align: center;text-transform: capitalize;}
-p.p-time { font-size:18px;text-align: center;text-transform: capitalize;}
-p.p-price { font-size:18px;text-align: center;text-transform: capitalize;color: #ed1c24;font-weight: bold;}
-p.p-tax { font-size:18px;text-align: center;text-transform: capitalize;}
-.sub-btn {background: #ed1c24;color: #fff;border-radius: 0px;padding: 5px 8px;}
-.sub-btn:hover, .sub-btn:focus { color:#fff; text-decoration:none;}
-  
-  
-  
-  
-  
-  
-  
-  
-  </style>
+<title>d2s Digital Limited</title>
+
+<meta name="description" content="d2s Digital Limited provides services and products to enable you to 'do more' with your data. We offer a range of web enabled applications underpinned by APIs of your data, that can be run on-premises or in the cloud.">
+<meta name="keywords" content="Digital Services, Api, Data Services, Data Integration, Saas, Cloud, Maidenhead, Berkshire, Reading, Guildford, Hampshire, Surrey">
+<meta name="author" content="anomis66">
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.css" integrity="sha256-pgox5Od7j7Y2C5hmU6wkdi21JJiS2JBwmbcQnSGUEQw=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha256-LcmP8hlMTofQrGU6W2q3tUnDnDZ1QVraxfMkP060ekM=" crossorigin="anonymous" />
+<link rel="stylesheet" href="./css/default.css" />
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js" integrity="sha256-+XG5Aa655VsH1HKv7gm9WuBRWeERnb0W2ZPkc1Zef8A=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha256-kdEnCVOWosn3TNsGslxB8ffuKdrZoGQdIdPwh7W1CsE=" crossorigin="anonymous"></script>
+
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+
+
+
+<body id="body">
 
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#myPage">d2s Digital  </a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#team">The Team</a></li>
-        <li><a href="#price">Price</a></li>		
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			</button>
+			<a class="navbar-brand" href="http://www.d2sdigital.com"><img src="./images/d2s-digital-ltd_logo.png" alt="d2s Digital Limited">
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#about">What we do</a></li>
+				<li><a href="#services">Our services</a></li>
+				<li><a href="#team">The team</a></li>
+				<li><a href="#contact">Contact us</a></li>
+			</ul>
+		</div>
+	</div>
 </nav>
 
 <div class="jumbotron text-center">
-        <img src="logo_rebrand.png" 
-	     id="d2s_logo" class="img-rounded" alt="logo" width="300" height="160">
- 
-  <p>Helping you do more with your data.</p> 
+	<h2 class="script">Release Your Data</h2>
 </div>
 
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid">
-  <h1 class="hidden">d2s Digital</h1>
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>About us</h2><br>
-      <p>We are a digital technology company founded in early 2017, providing services and products to enable our clients to 'do more' with their data. d2s offers a range of web enabled applications underpinned by <abbr title="Application Program Interface">API</abbr>s of your data, that can be run on-premises or in the cloud. The three founding members of d2s have between them over 35 years local government experience, predominately in IT services but with a wealth of knowledge and experience in all service areas of local authorities.</p>
-	  <br>
-      <p>d2s also provides consultancy service to a range of customers, especially those in  local government, around digital transformation, cloud integration and migration as well as enterprise geographic information systems based on Open-Source. Using Open-Source technologies is at the heart of d2s which enables us to provide our clients value for money and to rapidly develop applications and services. </p>	  
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-equalizer logo"></span>
-    </div>
-  </div>
-</div>
+<div id="about" class="container">
+	<h1 class="hidden">d2s Digital Limited</h1>
 
-<div class="container-fluid bg-grey">
-  <div class="row">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-globe logo slideanim"></span>
-    </div>
-    <div class="col-sm-8">
-      <h2>At the core</h2><br>
-      <h3><small><strong>Application Program Interfaces:</strong> (APIs) are central to d2s products and services.</small></h3>
-	  <p>The growth of cloud services and infrastructure has changed the IT landscape, as such the power, flexibility and ease of accessibility of APIs is becoming more apparent. d2s believes in API-led connectivity to make data accessible to wider audiences through new, agile, better connected applications. What API-led connectivity means for legacy systems and solutions is that the wealth of data, information and knowledge stored within it can be disseminated beyond the confines of a single application.</p>
-    </div>
-  </div>
-</div>
-
-<!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center">
-  <h2>Solutions</h2>
-  <h3><small>Our 'insight' range of solutions provides different avenues into viewing, collaborating, maintaining and sharing data and information. </small></h3>
-  <br>
-  <div class="row slideanim">
-    <div class="col-sm-4 panel panel-default">
-	<br>
-		<div class="panel-body">
-		<span class="glyphicon glyphicon-repeat logo-small"></span>
-
-	  
-			<h4>insight: api</h4>
-			<p align="justify">Use <em>insight:api</em> as either your first step into the insight range or as a means just to get your data web accessible. This services enables you to publish secured or open APIs as either a JSON or GeoJSON RESTful Service.</p>
-		</div>   
-	
+	<div class="row">
+		<div class="col-sm-8">
+			<h2>What we do</h2>
+			<p><strong>d2s Digital Limited</strong> provide services and products to enable you to 'do more' with your data.  We offer a range of web enabled applications underpinned by APIs of your data, that can be run on-premises or in the cloud.</p>
+			<p><strong>d2s Digital Limited</strong> also provides consultancy services, around digital transformation, cloud integration and bespoke development.  The use of Open-Source technologies is at the heart of d2s Digital Limited which enables us to provide you with value for money and to rapidly develop applications and services.</p>
+		</div>
+		<div class="col-sm-4 text-center hidden-xs">
+			<i class="fa fa-globe logo"></i>
+		</div>
 	</div>
-    <div class="col-sm-4 panel panel-default">
-	<br>
-		<div class="panel-body">
-		  <span class="glyphicon glyphicon-search logo-small"></span>
-		  <h4>insight: view</h4>
-		  <p align="justify">A route into seeing your data and its associated linked data. Underpinned by a range of APIs of your data, <em>insight:view</em> is a searchable web application that provides an insight in a single record. It is tailored around your data and data requirements, can be linked to open-data sources and through <abbr title=" Extract, Transform, Load">ETL</abbr> services extract data from a wide range of databases. </p>
-		</div>   
+</div>
+
+
+
+
+
+<div id="services" class="container">
+	<div class="row">
+		<div class="col-sm-4 text-center hidden-xs">
+			<i class="fa fa-database logo"></i>
+		</div>
+		<div class="col-sm-8">
+			<h2>Our services</h2>
+			<p>We can provide you with a range of bespoke developed solutions tailored to your requirements but we can also provide you with simple, no frills, impartial consultancy on your data and digital requirements. Over the years we've see a lot of solutions, products and heard a lot of 'spiel', so although it might not always be us that can deliver for you, we probably know who can. We like to think we are different. So let's talk ?</p>
+		</div>
 	</div>
-    <div class="col-sm-4 panel panel-default">
-	<br>
-	<div class="panel-body">
-      <span class="glyphicon glyphicon-map-marker logo-small"></span>
-      <h4>insight: map</h4>
-      <p align="justify">View data on any connected device, anywhere on an interactive map. Underpinned by the range of APIs of your data and using Open-Source JavaScript web mapping libraries, <em>insight: map</em> allows you to view your data and/or Open-Data easily and effortlessly.</p>
-    </div>
-  </div>
-    </div>
-
-  
-  <br><br>
-  <h2>Services</h2>
-  <h3 align="justify"><small>We can provide you with a range of solutions tailored to your requirements but we can also provide you with simple, no frills, impartial consultancy on your data and digital requirements. Over the years we've see a lot of solutions, products and heard a lot of spill, so although it might not always be us that can deliver for you, we probably know who can. We like to think we are different. Let's talk?</small></h3>
-  <br>
-  <div class="row slideanim">
-    <div class="col-sm-6">
-      <span class="glyphicon glyphicon-cog logo-small"></span>
-      <h4>Bespoke development</h4>
-      <p align="justify">Open-Source technologies and cloud solutions are great at providing quick answers to your requirements. We use an 'Agile' approach and code sprints to quickly develop Alpha releases, so that we can collaborate on tailoring your needs efficiently, meaning that we can go live with your product as soon as possible.</p>
-    </div>
-    <div class="col-sm-6">
-      <span class="glyphicon glyphicon-map-marker logo-small"></span>
-      <h4>Geo-solutions</h4>
-      <p align="justify">We love QGIS and PostGIS. We've extensive experience in these two pieces of open-source software and can provide a range of services to help you on your way to using them. Let's talk to see how we can help you out.</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div id="team" class="container-fluid text-center bg-grey">
-  <h2>Meet the team</h2><br>
-  <h3><small>We are d2s Digital Limited; three guys who like data.</small></h4>
-  <div class="row text-center slideanim">
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img class="img-circle" src="@dan.png" alt="Brookman" width="400" height="300">
-        <p><strong>Dan Brookman</strong></p>
-        <p>@dbrookman71</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img class="img-circle" src="@sa.png" alt="Arthur" width="400" height="300">
-        <p><strong>Simon Arthur</strong></p>
-        <p>@anomis66</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img class="img-circle" src="@sm.png" alt="Miles" width="400" height="300">
-        <p><strong>Simon Miles</strong></p>
-        <p>@geosmiles</p>
-      </div>
-    </div>
-  </div><br>
-  
-  <h2>We want to work with you</h2>
-
 </div>
 
 
 
 
-<div id="price" class="container-fluid text-center">
 
-<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-</div>
-
-<div class="plans col-md-12 col-sm-12 col-xs-12 text-center">
-<h5>insight:api PLANS</h5>
-</div>
-</div><!--container-fluid close-->
-
-
-<section>
 <div class="container">
-<div class="row">
-                <!-- item -->
-<div class="col-md-4 col-sm-4 col-xs-12 text-center">
-<div class="panel panel-pricing">
-<div class="panel-heading">
-<i class="fa fa-windows"></i>
-<h3>Plan -1</h3>
-</div><!--panel-heading close-->
-<div class="panel-body text-center">
-<p class="p-title">maximum of 3 APIs</p><!--p-title close-->
-<p class="p-time">4GB of storage</p>
-<p class="p-time">40GB of bandwidth </p><!--p-time close-->
-</div><!--panel-body text-center close-->
-<div class="panel-body text-center">
-<p class="p-price">£ TBA </p><!--p-price close-->
-</div><!--panel-body text-center close-->
-<div class="panel-footer">
-</div>
-</div><!--panel panel-pricing close-->
-</div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
-
-
-<div class="col-md-4 col-sm-4 col-xs-12 text-center">
-<div class="panel panel-pricing">
-<div class="panel-heading">
-<i class="fa fa-windows"></i>
-<h3>Plan -2</h3>
-</div><!--panel-heading close-->
-<div class="panel-body text-center">
-<p class="p-title">maximum of 5 APIs</p><!--p-title close-->
-<p class="p-time">8GB of storage</p>
-<p class="p-time">100GB of bandwidth </p><!--p-time close--> 
-</div><!--panel-body text-center close-->
-<div class="panel-body text-center">
-<p class="p-price">£ TBA </p><!--p-price close-->
-</div><!--panel-body text-center close-->
-<div class="panel-footer">
-</div>
-</div><!--panel panel-pricing close-->
-</div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
-
-
-
-<div class="col-md-4 col-sm-4 col-xs-12 text-center">
-<div class="panel panel-pricing">
-<div class="panel-heading">
-<i class="fa fa-windows"></i>
-<h3>Plan -3</h3>
-</div><!--panel-heading close-->
-<div class="panel-body text-center">
-<p class="p-title">Unlimited APIs</p><!--p-title close-->
-<p class="p-time">Unlimited storage</p>
-<p class="p-time">Unlimited bandwidth </p><!--p-time close--> 
-</div><!--panel-body text-center close-->
-<div class="panel-body text-center">
-<p class="p-price">POA </p><!--p-price close-->
-</div><!--panel-body text-center close-->
-<div class="panel-footer">
-</div>
-</div><!--panel panel-pricing close-->
-</div><!--col-md-4 col-sm-4 col-xs-12 text-center close-->
-
-</div><!--row close-->
-</div><!--container close-->
-</section><!--section close-->
-
-
-</div>
-<!-- Container (Contact Section) -->
-<div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">Contact</h2>
-  <div class="row">
-	<div class="col-md-6 col-sm-6 col-xs-12 text-center">
-	
-		<div class="col-md-4 col-sm-4 col-xs-4 text-center">
-		<p><a href="mailto:hello@d2sdigital.com?Subject=Hello%20d2s" target="_top"><i class="fa fa-envelope"style="font-size:48px;"></i> </a></p>		
+	<div class="row">
+		<div class="col-sm-8">
+			<h2>At the core</h2>
+			<p><strong>Application Program Interfaces</strong>: APIs are central to our products and services.</p>
+			<p>The growth of cloud services and infrastructure has changed the IT landscape, as such the power, flexibility and ease of accessibility of APIs is becoming more apparent. We believe in API-led connectivity to make data accessible to wider audiences through new, agile, better connected applications.  What API-led connectivity means for legacy systems and solutions is that the wealth of data, information and knowledge stored within it can be disseminated beyond the confines of a single application.</p>
+			
+			<p>We love geographical information systems like <a href="//www.qgis.org/">QGIS</a> and PostGIS. We've extensive experience in these two pieces of open-source software and can provide a range of services to help you on your way to using them. Let's talk to see how we can help you out.</p>
 		</div>
-		<div class="col-md-4 col-sm-4 col-xs-4 text-center">
-		<p><a href="https://github.com/d2sdigital"><i class="fa fa-github"style="font-size:48px;"></i></a></p>
-		
+		<div class="col-sm-4 text-center hidden-xs">
+			<i class="fa fa-cogs logo"></i>
 		</div>
-		<div class="col-md-4 col-sm-4 col-xs-4 text-center">
-	 <p><a href="https://twitter.com/d2sdigital"><i class="fa fa-twitter" style="font-size:48px;"></i></a></p>	
-		
-		</div>
-		
-
-
-
-		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-			<hr>
-			<h4>d2s Digital Limited</h4>	
-			<p>hello@d2sdigital.com</p>	
-			<p>Company House: 10580883</p>	
-			<p>VAT: pending</p>
-		</div>		
-
-	  
-    </div>
-		
-	
-    <div class="col-md-6 col-sm-6 col-xs-12" id="mapid" style="height:400px;"></div>
 	</div>
-  </div>
 </div>
 
 
 
-<!-- Map -->
-
-<script>
-
-var mymap = L.map('mapid', {center: [51.520557,-0.7236647], zoom:10,  dragging: !L.Browser.mobile});
 
 
+<div id="team" class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2>Meet the team</h2>
+			<p>We are d2s Digital Limited; Three guys who love data.</p>
+  
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="thumbnail text-center">
+						<img class="img-circle logo" src="./images/d_db.png" alt="Brookman">
+						<p><strong>Dan Brookman</strong></p>
+						<p><a href="//twitter.com/dbrookman71"><i class="fa fa-twitter"></i> @dbrookman71</a></p>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="thumbnail text-center">
+						<img class="img-circle" src="./images/d_sa.png" alt="Arthur">
+						<p><strong>Simon Arthur</strong></p>
+						<p><a href="//twitter.com/anomis66"><i class="fa fa-twitter"></i> @anomis66</a></p>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="thumbnail text-center">
+						<img class="img-circle" src="./images/d_sm.png" alt="Miles">
+						<p><strong>Simon Miles</strong></p>
+						<p><a href="//twitter.com/geosmiles"><i class="fa fa-twitter"></i> @geosmiles</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 18,
-		attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-	}).addTo(mymap);
 
-	L.marker([51.520557,-0.7236647]).addTo(mymap)
-		.bindPopup('<img src="logo_rebrand.png" alt="Mountain View" style="width:152px;height:114px;">').openPopup();
 
-	var popup = L.popup();
 
-</script>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container">
+
+	<h2>Contact us</h2>
+
+	<div class="row text-center">
+		<div class="col-sm-6 col-xs-12">
+
+			<h3>d2s Digital Limited</h3>
+			<p>Company House: <a href="//beta.companieshouse.gov.uk/company/10580883">10580883</a></p>
+			<p>VAT: <em>pending</em></p>
+
+			<div class="row text-center">
+				<div class="col-xs-4">
+					<p>
+						<a href="mailto:hello@d2sdigital.com?Subject='Hello%20d2s%20Digital%20Limited' ">
+							<i class="fa fa-3x fa-envelope">
+								<span class="sr-only">Email Us</span>
+							</i>
+						</a>
+					</p>
+				</div>
+				<div class="col-xs-4">
+					<p>
+						<a href="https://github.com/d2sdigital">
+							<i class="fa fa-3x fa-github">
+								<span class="sr-only">Find us on Github</span>
+							</i>
+						</a>
+					</p>
+				</div>
+				<div class="col-xs-4">
+					<p>
+						<a href="https://twitter.com/d2sdigital">
+							<i class="fa fa-3x fa-twitter">
+								<span class="sr-only">Follow us on Twitter</span>
+							</i>
+						</a>
+					</p>	
+				</div>
+			</div>
+		</div>		
+		<div class="col-sm-6 col-xs-12">
+			<div id="mapid"></div>
+			<!-- Map -->
+			<script>
+			var mymap = L.map('mapid', {
+				center: [51.520557,-0.7236647], 
+				zoom:10,  
+				dragging: !L.Browser.mobile}
+			);
+			L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+			}).addTo(mymap);
+
+			L.marker([51.520557,-0.7236647])
+				.addTo(mymap)
+				.bindPopup('<img src="./images/d2s-digital-ltd_logo.png" alt="HQ" style="max-width: 12em;">')
+				.openPopup();
+
+			var popup = L.popup();
+			</script>
+		</div>
+	</div>		
+</div>
+
+
+
+
 
 <footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a>
+	<div class="container">
+		<div class="col-sm-12">
+			<hr>
+			&copy; <a href="//www.d2sdigital.com/">d2s Digital Limited</a> 2018
+	
+			<a href="#" class="back-to-top" style="display: inline;">
+				<i class="fa fa-arrow-circle-up"></i>
+			</a>
+			
+		</div>
+	</div>
 </footer>
+
+
+
+
 
 <script>
 $(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+	// Add smooth scrolling to all links in navbar + footer link
+	$(".navbar a").on('click', function(event) {
+		// Make sure this.hash has a value before overriding default behavior
+		if (this.hash !== "") {
+			// Prevent default anchor click behavior
+			event.preventDefault();
+			// Store hash
+			var hash = this.hash;
+			// Using jQuery's animate() method to add smooth page scroll
+			// The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top
+			}, 900, function(){
 
-      // Store hash
-      var hash = this.hash;
+				// Add hash (#) to URL when done scrolling (default click behavior)
+				window.location.hash = hash;
+			});
+		} // End if
+	});
+	$(window).scroll(function() {
+		$(".slideanim").each(function(){
+			var pos = $(this).offset().top;
+			var winTop = $(window).scrollTop();
+			if (pos < winTop + 600) {
+				$(this).addClass("slide");
+			}
+		});
+	});
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-  
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-        if (pos < winTop + 600) {
-          $(this).addClass("slide");
-        }
-    });
-  });
+	
+	var offset = 300;
+	var duration = 900;
+	jQuery(window).scroll(function() {
+		if (jQuery(this).scrollTop() > offset) {
+			jQuery('.back-to-top').fadeIn(duration);
+		} else {
+			jQuery('.back-to-top').fadeOut(duration);
+		}
+	});
+	jQuery('.back-to-top').click(function(event) {
+		event.preventDefault();
+		jQuery('html, body').animate({scrollTop: 0}, duration);
+		return false;
+	})
 })
 </script>
 
